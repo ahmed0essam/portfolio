@@ -9,7 +9,7 @@
   transition: border-color .3s, color .3s, background .3s;
   background: none; font-family: var(--sans);
 }
-.filter-tab:hover, .filter-tab.active { border-color: var(--accent); color: var(--accent); background: rgba(201,240,107,.06); }
+.filter-tab:hover, .filter-tab.active { border-color: var(--accent); color: var(--accent); background: rgba(232,180,85,.06); }
 
 .cases-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
 .case-card {
@@ -17,7 +17,7 @@
   overflow: hidden; transition: border-color .4s, transform .4s;
   display: flex; flex-direction: column;
 }
-.case-card:hover { border-color: rgba(201,240,107,.15); transform: translateY(-3px); }
+.case-card:hover { border-color: rgba(232,180,85,.15); transform: translateY(-3px); }
 .case-content { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
 .case-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--text-muted); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
 .case-tag::before { content: ''; width: 12px; height: 1px; background: var(--text-muted); }

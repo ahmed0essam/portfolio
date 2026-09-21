@@ -5,13 +5,13 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #0a0a0c;
-  --bg-card: #111114;
-  --bg-elevated: #18181c;
-  --text: #e8e6e1;
-  --text-muted: #8a887f;
-  --accent: #c9f06b;
-  --border: #222226;
+  --bg: #0b0b0e;
+  --bg-card: #131316;
+  --bg-elevated: #1a1a1f;
+  --text: #eeeae2;
+  --text-muted: #95908a;
+  --accent: #e8b455;
+  --border: #26262c;
   --serif: 'Instrument Serif', Georgia, serif;
   --sans: 'DM Sans', system-ui, sans-serif;
 }
@@ -54,7 +54,7 @@ nav.scrolled { background: rgba(10,10,12,.92); }
   font-weight: 500; font-size: .82rem; letter-spacing: .04em;
   transition: transform .3s, box-shadow .3s;
 }
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 24px rgba(201,240,107,.25); }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 24px rgba(232,180,85,.25); }
 /* Specificity has to beat `.nav-links a`, which would otherwise win. */
 .nav-links a.nav-cta,
 .nav-links a.nav-cta:hover { color: var(--bg); }
@@ -79,7 +79,7 @@ nav.scrolled { background: rgba(10,10,12,.92); }
   display: inline-flex; align-items: center; gap: .5rem;
   transition: transform .3s, box-shadow .3s;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,240,107,.2); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,180,85,.2); }
 .btn-secondary {
   border: 1px solid var(--border); padding: .8rem 2rem; border-radius: 100px;
   font-size: .9rem; color: var(--text-muted); transition: border-color .3s, color .3s;

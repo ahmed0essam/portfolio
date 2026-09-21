@@ -54,14 +54,14 @@
   position: relative;
   display: flex; align-items: center; justify-content: center;
   padding: .62rem .9rem;
-  background: linear-gradient(180deg, #1e1e23, #17171b);
+  background: linear-gradient(180deg, #201f24, #19181d);
   border-bottom: 1px solid var(--border);
 }
 .browser-dots {
   position: absolute; left: .9rem; top: 50%; transform: translateY(-50%);
   display: flex; gap: .4rem;
 }
-.browser-dots i { width: 10px; height: 10px; border-radius: 50%; background: #33333c; }
+.browser-dots i { width: 10px; height: 10px; border-radius: 50%; background: #36343b; }
 .browser-url {
   font-size: .7rem; letter-spacing: .04em; color: var(--text-muted);
   background: rgba(255,255,255,.035);
