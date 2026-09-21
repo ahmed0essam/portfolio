@@ -19,14 +19,14 @@
 }
 .case-card:hover { border-color: rgba(201,240,107,.15); transform: translateY(-3px); }
 .case-content { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
-.case-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--accent); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
-.case-tag::before { content: ''; width: 12px; height: 1px; background: var(--accent); }
-.case-content h3 { font-family: var(--serif); font-size: 1.15rem; margin-bottom: .5rem; line-height: 1.25; }
+.case-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--text-muted); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+.case-tag::before { content: ''; width: 12px; height: 1px; background: var(--text-muted); }
+.case-content h2 { font-family: var(--serif); font-size: 1.15rem; margin-bottom: .5rem; line-height: 1.25; }
 .case-content p { font-size: .83rem; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 1rem; }
 .case-metrics { display: flex; gap: 1.25rem; flex-wrap: wrap; padding-top: .75rem; border-top: 1px solid var(--border); margin-bottom: 1rem; }
 .case-metric-val { font-family: var(--serif); font-size: 1.25rem; color: var(--accent); line-height: 1.1; }
 .case-metric-label { font-size: .65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; margin-top: .15rem; }
-.case-link { font-size: .82rem; color: var(--accent); display: inline-flex; align-items: center; gap: .4rem; transition: gap .3s; margin-top: auto; }
+.case-link { font-size: .82rem; color: var(--text); text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; gap: .4rem; transition: gap .3s; margin-top: auto; }
 .case-link:hover { gap: .7rem; }
 
 @media (max-width: 900px) { .cases-grid { grid-template-columns: 1fr; } }

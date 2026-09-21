@@ -62,14 +62,14 @@
   display: flex; flex-direction: column; transition: border-color .4s, transform .4s;
 }
 .featured-card:hover { border-color: rgba(201,240,107,.15); transform: translateY(-3px); }
-.featured-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--accent); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
-.featured-tag::before { content: ''; width: 12px; height: 1px; background: var(--accent); }
+.featured-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--text-muted); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+.featured-tag::before { content: ''; width: 12px; height: 1px; background: var(--text-muted); }
 .featured-card h3 { font-family: var(--serif); font-size: 1.2rem; margin-bottom: .5rem; line-height: 1.25; }
 .featured-card p { font-size: .85rem; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
 .featured-metrics { display: flex; gap: 1.5rem; padding-top: .75rem; border-top: 1px solid var(--border); margin-bottom: 1.25rem; }
 .featured-metric-val { font-family: var(--serif); font-size: 1.4rem; color: var(--accent); line-height: 1.1; }
 .featured-metric-label { font-size: .65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; margin-top: .15rem; }
-.featured-link { font-size: .82rem; color: var(--accent); display: inline-flex; align-items: center; gap: .4rem; transition: gap .3s; }
+.featured-link { font-size: .82rem; color: var(--text); text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; gap: .4rem; transition: gap .3s; }
 .featured-link:hover { gap: .7rem; }
 
 /* ── DASHBOARDS & REPORTS ── */
@@ -102,8 +102,8 @@
    clipping — no fixed height needed. */
 .dash-shot-img img { width: 100%; }
 .dash-body { padding: 1.75rem 2rem 2rem; display: flex; flex-direction: column; flex: 1; }
-.dash-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--accent); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
-.dash-tag::before { content: ''; width: 12px; height: 1px; background: var(--accent); }
+.dash-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--text-muted); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .5rem; }
+.dash-tag::before { content: ''; width: 12px; height: 1px; background: var(--text-muted); }
 .dash-card h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: .6rem; line-height: 1.25; }
 .dash-card p { font-size: .86rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
 .dash-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; padding-top: 1.1rem; border-top: 1px solid var(--border); }
@@ -136,7 +136,7 @@
 .client-type { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: border-color .3s; }
 .client-type:hover { border-color: rgba(201,240,107,.2); }
 .client-type-icon { font-size: 1.8rem; margin-bottom: .75rem; }
-.client-type h4 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .4rem; }
+.client-type h3 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .4rem; }
 .client-type p { font-size: .78rem; color: var(--text-muted); }
 
 /* ── CTA ── */
@@ -159,7 +159,7 @@
 .contact-card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
 .contact-card h4 { font-size: .9rem; margin-bottom: .4rem; }
 .contact-card p { font-size: .85rem; color: var(--text-muted); }
-.contact-card a { color: var(--accent); transition: opacity .3s; }
+.contact-card a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; transition: opacity .3s; }
 .contact-card a:hover { opacity: .7; }
 
 /* ── RESPONSIVE ── */
@@ -212,7 +212,11 @@
 .lead-form input,
 .lead-form textarea {
   background: var(--bg); color: var(--text);
-  border: 1px solid var(--border); border-radius: 10px;
+  /* --border (#222226) measures 1.25:1 against the field fill. WCAG 1.4.11
+     wants 3:1 for the boundary of a control, so the field edge needs its own
+     lighter value rather than the decorative border token. #6b6b74 gives
+     3.75:1 against the fill and 3.36:1 against the panel behind it. */
+  border: 1px solid #6b6b74; border-radius: 10px;
   padding: .75rem .9rem;
   font-family: var(--sans); font-size: .95rem; line-height: 1.5;
   text-transform: none; letter-spacing: normal;
@@ -222,8 +226,11 @@
 .lead-form textarea { resize: vertical; min-height: 96px; }
 .lead-form input::placeholder,
 .lead-form textarea::placeholder { color: #7f7e75; }
-.lead-form input:focus,
-.lead-form textarea:focus { outline: none; border-color: var(--accent); }
+.lead-form input:focus-visible,
+.lead-form textarea:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+  border-color: var(--accent);
+}
 .lead-form input[aria-invalid="true"],
 .lead-form textarea[aria-invalid="true"] { border-color: #ff8a8a; }
 .lead-form button { align-self: flex-start; border: none; cursor: pointer; font-family: var(--sans); }
@@ -278,3 +285,18 @@
   /* Keep the footer clear of the bar. */
   footer { padding-bottom: 5rem; }
 }
+
+/* ── SVG ICONS ── */
+/* currentColor throughout, so each icon takes the colour of its slot. */
+.icon { width: 22px; height: 22px; display: block; flex: none; }
+
+/* Service icons keep the accent: small marks inside a box read as brand,
+   and they do not compete with a solid filled button. */
+.service-icon { color: var(--accent); }
+.service-icon .icon { width: 24px; height: 24px; }
+
+/* These two sat in the open with no container, so accent here would just be
+   more scattered lime. Off-white instead. */
+.client-type-icon, .contact-card-icon { color: var(--text); }
+.client-type-icon .icon { width: 26px; height: 26px; }
+.contact-card-icon .icon { width: 22px; height: 22px; }
