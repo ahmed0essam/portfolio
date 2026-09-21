@@ -25,16 +25,14 @@ git add -A && git commit -m "Update copy" && git push
 
 Live within about a minute.
 
-## Still to fill in
+## Contact details
 
-Three things were not known when this was built and are currently pointed at
-the email address as a safe fallback rather than left broken:
-
-- **LinkedIn** — `index.html`, contact section. Replace the `mailto:` href with the real profile URL.
-- **Upwork** — same section, same fix. The nav button was relabelled from
-  "Hire me on Upwork" to "Hire me" because it no longer goes to Upwork; change it back
-  once the real URL is in.
-- **Location** — the footer reads "Egypt". Set the city, or the country if that is preferred.
+- **Email** `ahmed0essaam@gmail.com`
+- **LinkedIn** https://eg.linkedin.com/in/-ahmed-essam
+- **Upwork** still points at the email, because no profile URL has been supplied.
+  The nav button reads "Hire me" rather than "Hire me on Upwork" for the same reason.
+  Once the URL exists, update the Upwork card in the contact section of `index.html`
+  and change the button label back.
 
 ## Known cosmetics, inherited
 
