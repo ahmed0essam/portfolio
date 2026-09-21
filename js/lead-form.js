@@ -76,11 +76,26 @@
       elapsed: Math.round((Date.now() - loadedAt) / 1000)
     };
 
+    /* Without an abort the button sits disabled on "Sending..." until the
+       browser eventually gives up, which on a stalled connection can be
+       minutes. Fifteen seconds then offer the email address instead. */
+    var controller = typeof AbortController === "function" ? new AbortController() : null;
+    var timedOut = false;
+    var timer = setTimeout(function () {
+      timedOut = true;
+      if (controller) controller.abort();
+    }, 15000);
+
     fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      signal: controller ? controller.signal : undefined
     })
+      .then(function (res) {
+        clearTimeout(timer);
+        return res;
+      })
       .then(function (res) {
         return res.json().then(function (data) {
           return { ok: res.ok, data: data };
@@ -105,8 +120,14 @@
         button.innerHTML = buttonLabel;
       })
       .catch(function () {
-        // Network failure, blocked request, offline. Always give a way through.
-        setStatus("Could not reach the server. Please email " + EMAIL + " instead.", "error");
+        clearTimeout(timer);
+        // Network failure, blocked request, offline, or our own timeout.
+        // Always give a way through.
+        setStatus(
+          (timedOut ? "That took too long. " : "Could not reach the server. ") +
+            "Please email " + EMAIL + " instead.",
+          "error"
+        );
         button.disabled = false;
         button.innerHTML = buttonLabel;
       });
