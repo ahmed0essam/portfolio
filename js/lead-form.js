@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var ENDPOINT = "https://ahmed-leads.hyve-dashboard.workers.dev/submit";
+  var ENDPOINT = "https://ahmed-leads.people-desk.workers.dev/submit";
   var EMAIL = "ahmed0essaam@gmail.com";
 
   var form = document.getElementById("lead-form");
